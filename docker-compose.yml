@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    container_name: php56-web
+    build: ./docker/web
+    ports:
+      - '8080:80'
+    volumes:
+      - ./public/:/var/www/html/
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    container_name: php56-db
+    image: mysql:5.7
+#    platform: 'linux/amd64' # for M1 Mac
+    ports:
+      - '33306:3306'
+    volumes:
+      - ./docker/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: php56-db
+      MYSQL_USER: php56
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
