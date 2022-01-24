@@ -14,4 +14,4 @@ http://127.0.0.1:8080/
 $ mysql -h 127.0.0.1 -P 33306 -u php56 -p
 
 ## web to mysql
-mysql://php56:password@db:3306/php56-db'
+mysql://php56:password@db:3306/php56-db
